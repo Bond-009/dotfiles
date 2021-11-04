@@ -2,8 +2,6 @@
 
 KERNEL=$(uname -s)
 
-# EXPORTS
-[ -f ~/.exports ] && source ~/.exports
 # EDITORS
 export EDITOR="nano"
 export VISUAL="nvim"
@@ -12,36 +10,33 @@ export CC="clang"
 export CXX="clang++"
 export DCMAKE_C_COMPILER=$CC
 export DCMAKE_CXX_COMPILER=$CXX
-## RUST
-export RUST_BACKTRACE=full
 
 # Aliases
 ## Replace ls with exa if installed
 if [ -x "$(command -v exa)" ]; then
-    alias ls="exa"
-    alias l="exa --icons"
-    alias tree="exa --tree"
+    alias ls='exa'
+    alias tree='exa --tree'
 else
-    alias ls="ls --color=auto"
+    alias ls='ls --color=auto'
 fi
 ## Editors
 alias e=$VISUAL
 alias vim=$VISUAL
 ## Colors
-alias dir="dir --color=auto"
-alias grep="grep --color=auto"
-alias hexedit="hexedit --color"
+alias dir='dir --color=auto'
+alias grep='grep --color=auto'
+alias hexedit='hexedit --color'
 ## Some more ls aliases
-alias ll="ls -alF"
-alias la="ls -a"
+alias ll='ls -Al'
+alias la='ls -A'
 
 # Easy to use copy/paste aliases for different platforms
 if [ "$KERNEL" = "Linux" ]; then
-    alias ucopy="xclip -selection c"
-    alias upaste="xclip -selection clipboard -o"
+    alias ucopy='xclip -selection c'
+    alias upaste='xclip -selection clipboard -o'
 elif [ "$KERNEL" = "Darwin" ]; then
-    alias ucopy="pbcopy"
-    alias upaste="pbpaste"
+    alias ucopy='pbcopy'
+    alias upaste='pbpaste'
 fi
 
 # Greeting message
@@ -56,14 +51,14 @@ if [ -n "$WELCOME_MSG" ]; then
         OS_DESCRIPTION="$(system_profiler SPSoftwareDataType -detailLevel mini | grep -o "System Version: .*" | awk -F ': ' '{print $2}')"
     fi
 
-    echo
-    echo -e " \e[1mUser: \e[0;32m$USER\e[0m"
-    echo -e " \e[1mHostname: \e[0;32m$(uname -n)\e[0m"
-    echo -e " \e[1mOS: \e[0;32m$OS_DESCRIPTION\e[0m"
-    echo -e " \e[1mKernel: \e[0;32m$KERNEL $(uname -r)\e[0m"
-    echo
-    echo -e " \e[1mDisk usage:\e[0m"
-    echo
-    echo -e "$(eval df $DF_ARGS | sed 's/^/  /')"
-    echo
+    printf '\n'
+    printf ' \e[1mUser: \e[0;32m%s\e[0m\n' "$USER"
+    printf ' \e[1mHostname: \e[0;32m%s\e[0m\n' "$(uname -n)"
+    printf ' \e[1mOS: \e[0;32m%s\e[0m\n' "$OS_DESCRIPTION"
+    printf ' \e[1mKernel: \e[0;32m%s %s\e[0m\n' "$KERNEL" "$(uname -r)"
+    printf '\n'
+    printf ' \e[1mDisk usage:\e[0m\n'
+    printf '\n'
+    printf '%s\n' "$(eval df $DF_ARGS | sed 's/^/  /')"
+    printf '\n'
 fi

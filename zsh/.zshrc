@@ -1,7 +1,4 @@
-# Exec general init script
-source ~/.initsh
-
-# If not running interactively, don't do anything else
+# If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
@@ -122,3 +119,6 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 [ -n "$ZSH_SYNTAX_HIGHLIGHTING_PATH" ] && source "$ZSH_SYNTAX_HIGHLIGHTING_PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Exec general init script
+source ~/.initsh
