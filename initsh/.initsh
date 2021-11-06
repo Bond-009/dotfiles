@@ -2,29 +2,32 @@
 
 KERNEL=$(uname -s)
 
-# EDITORS
-export EDITOR="nano"
-export VISUAL="nvim"
-## C/C++
-export CC="clang"
-export CXX="clang++"
-export DCMAKE_C_COMPILER=$CC
-export DCMAKE_CXX_COMPILER=$CXX
-
 # Aliases
-## Replace ls with exa if installed
+alias e=\$VISUAL
+## Replace vi and vim with neovim if installed
+if [ -x "$(command -v nvim)" ]; then
+    alias vi='nvim'
+    alias vim='nvim'
+fi
+## Replace ls and tree with exa if installed
 if [ -x "$(command -v exa)" ]; then
     alias ls='exa'
     alias tree='exa --tree'
-else
-    alias ls='ls --color=auto'
 fi
-## Editors
-alias e=$VISUAL
-alias vim=$VISUAL
 ## Colors
+if [ -x "$(command -v dircolors)" ]; then
+    if [ -f ~/.dircolors ]; then
+        eval "$(dircolors ~/.dircolors)"
+    else
+        eval "$(dircolors)"
+    fi
+fi
+ls --color=auto > /dev/null 2>&1 && alias ls='ls --color=auto'
 alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias hexedit='hexedit --color'
 ## Some more ls aliases
 alias ll='ls -Al'

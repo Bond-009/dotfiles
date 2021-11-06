@@ -8,6 +8,27 @@
 [ -d "$HOME/dotnet" ] && export PATH="$HOME/dotnet:$PATH" && export DOTNET_ROOT="$HOME/dotnet"
 [ -d "$HOME/.dotnet/tools" ] && export PATH="$HOME/.dotnet/tools:$PATH"
 
+# Colors for BSD tools
+export CLICOLOR=1
+
+# Editor
+## Some applications expect the full path
+if [ -x "$(command -v nvim)" ]; then
+    VISUAL="$(command -v nvim)"
+else
+    VISUAL="$(command -v nano)"
+fi
+export VISUAL
+## Some applications only accept EDITOR
+EDITOR="$(command -v nano)"
+export EDITOR
+
+# C/C++
+if [ -x "$(command -v clang)" ]; then
+    export CC="clang"
+    export CXX="clang++"
+fi
+
 # DOTNET
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
