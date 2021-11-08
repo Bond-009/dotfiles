@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -ef
+
+INSTALLLOCATION="$HOME/dotnet"
+
+[ -z "$1" ] && echo "$0: missing url" && exit 1
+
+if [ -n "$2" ]; then
+    INSTALLLOCATION="$2"
+fi
+
+if [ -d "$INSTALLLOCATION" ]; then
+    echo "$INSTALLLOCATION already exists, do you want to remove it? <y/N>"
+    read -r RESPONSE
+    [ "$RESPONSE" = "y" ] && rm -r "$INSTALLLOCATION"
+fi
+
+TMPFILE=$(mktemp)
+
+mkdir -p "$INSTALLLOCATION"
+
+echo "downloading..."
+curl -o "$TMPFILE" "$1"
+echo "extracting..."
+tar zxf "$TMPFILE" -C "$INSTALLLOCATION"
+echo "cleaning up temp files..."
+rm "$TMPFILE"
+
+echo "dotnet was successfully installed in $INSTALLLOCATION"
