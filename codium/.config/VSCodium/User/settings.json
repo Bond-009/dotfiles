@@ -23,6 +23,34 @@
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "boundary",
     "editor.roundedSelection": false,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [ "comment.documentation.name.cs", "comment.documentation.delimiter.cs" ],
+                "settings": {
+                    "foreground": "#D4D4D4"
+                }
+            },
+            {
+                "scope": [ "entity.name.variable", "comment.documentation.attribute.name.cs", "variable.other.constants", "variable.other.enummember" ],
+                "settings": {
+                    "foreground": "#9CDCFE"
+                }
+            },
+            {
+                "scope": [ "comment.documentation.attribute.quotes.cs" ],
+                "settings": {
+                    "foreground": "#CE9178"
+                }
+            },
+            {
+                "scope": [ "keyword.operator" ],
+                "settings": {
+                    "foreground": "#C586C0"
+                }
+            }
+        ]
+    },
     "editor.wordBasedSuggestions": false,
 
     "explorer.confirmDelete": false,
@@ -50,8 +78,7 @@
 
     "git.detectSubmodules": false,
 
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
+    "telemetry.telemetryLevel": "off",
 
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
@@ -64,9 +91,6 @@
     "window.restoreWindows": "none",
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
     "window.titleBarStyle": "custom",
-    "window.zoomLevel": -1,
-
-    "workbench.colorTheme": "dark-plus-syntax",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
@@ -85,84 +109,7 @@
         "editor.autoIndent": "none"
     },
 
-    "editor.tokenColorCustomizations": {
-        "[dark-plus-syntax]": {
-            "comments": "#6A9955",
-            "textMateRules": [
-                {
-                    "scope": [
-                        "entity.name.tag.localname.cs",
-                        "punctuation.definition.tag.cs",
-                        "punctuation.terminator.statement.cs",
-                        "source.cs comment.block.documentation.cs punctuation.definition.comment.cs",
-                        "source.cs comment.block.documentation.cs meta.tag.cs punctuation.separator.equals.cs"
-                    ],
-                    "settings": {
-                        "foreground": "#d4d4d4"
-                    }
-                },
-                {
-                    "scope": [
-                        "entity.name.variable.property.cs",
-                        "entity.name.variable.parameter.cs",
-                        "entity.name.variable.field.cs",
-                        "entity.name.variable.local.cs",
-                        "meta.interpolation.cs variable.other.object.property.cs"
-                    ],
-                    "settings": {
-                        "foreground": "#d4d4d4"
-                    },
-                },
-                {
-                    "scope": [
-                        "keyword.other.get.cs",
-                        "keyword.other.set.cs"
-                    ],
-                    "settings": {
-                        "foreground": "#569cd6"
-                    }
-                },
-                {
-                    "scope": [
-                        "comment.block.c",
-                    ],
-                    "settings": {
-                        "foreground": "#6A9955"
-                    }
-                },
-                {
-                    "scope": [
-                        "punctuation.terminator.statement.c"
-                    ],
-                    "settings": {
-                        "foreground": "#d4d4d4"
-                    }
-                },
-                {
-                    "scope": [
-                        "storage.type.c",
-                    ],
-                    "settings": {
-                        "foreground": "#569cd6"
-                    }
-                },
-            ]
-        }
-    },
-
     // Plugin settings
-
-    // C/C++
-    "C_Cpp.default.defines": [
-        "TARGET_AMD64",
-        "TARGET_64BIT"
-    ],
-    "C_Cpp.intelliSenseEngine": "Default",
-    "C_Cpp.workspaceParsingPriority": "high",
-
-    // C/C++ Advanced Lint
-    "c-cpp-flylint.clang.standard": [ "c++11" ],
-    "c-cpp-flylint.flexelint.enable": false,
 
     // Crates
     "crates.compatibleDecorator": "✓",
@@ -178,7 +125,7 @@
     },
 
     // Material Icon Theme
-    "material-icon-theme.folders.color": "#26a69a",
+    "material-icon-theme.folders.color": "#0087ff",
 
     // C#
     "csharp.suppressHiddenDiagnostics": false,
@@ -186,18 +133,10 @@
     "csharp.suppressDotnetRestoreNotification": true,
     "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.enableRoslynAnalyzers": true,
-    "omnisharp.useGlobalMono": "auto",
     "razor.disabled": true,
-
-    // Rust (rls)
-    "rust.cfg_test": true,
-    "rust.clippy_preference": "on",
-    "rust.unstable_features": true,
 
     // Rust analyzer
     "rust-analyzer.inlayHints.enable": false,
-
-    "xmlTools.enforcePrettySelfClosingTagOnFormat": true,
 
     "cSpell.userWords": [
         "intrinsics",
