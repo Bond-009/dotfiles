@@ -7,6 +7,7 @@
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -d "$HOME/dotnet" ] && export PATH="$HOME/dotnet:$PATH" && export DOTNET_ROOT="$HOME/dotnet"
 [ -d "$HOME/.dotnet/tools" ] && export PATH="$HOME/.dotnet/tools:$PATH"
+[ -d "$HOME/pico/pico-sdk" ] && export PICO_SDK_PATH="$HOME/pico/pico-sdk"
 
 # Colors for BSD tools
 export CLICOLOR=1
