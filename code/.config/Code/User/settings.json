@@ -59,7 +59,8 @@
     "extensions.ignoreRecommendations": true,
 
     "files.associations": {
-        "*.clang-tidy": "yaml"
+        "*.clang-tidy": "yaml",
+        "*.asm": "asm-intel-x86-generic"
     },
     "files.eol": "\n",
     "files.exclude": {
