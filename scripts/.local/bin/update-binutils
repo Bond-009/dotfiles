@@ -1,0 +1,36 @@
+#!/bin/sh
+
+set -ef
+
+TARGETS="x86_64-elf aarch64-elf"
+
+[ -z "$1" ] && echo "$0: missing url" && exit 1
+
+if [ -n "$2" ]; then
+    TARGETS="$2"
+fi
+
+TMPFILE=$(mktemp)
+TMPDIR=$(mktemp -d)
+
+echo "downloading..."
+curl -o "$TMPFILE" "$1"
+echo "extracting..."
+tar Jxf "$TMPFILE" --strip-components=1 -C "$TMPDIR"
+echo "cleaning up temp file"
+rm "$TMPFILE"
+cd "$TMPDIR"
+for TARGET in $TARGETS
+do
+    echo "configuring target $TARGET..."
+    ./configure --target="$TARGET" --prefix="$HOME/opt/cross" \
+        --disable-nls --disable-werror --disable-libdecnumber --disable-readline --disable-sim
+    echo "building target $TARGET..."
+    make MAKEINFO=true -j "$(nproc)"
+    echo "installing target $TARGET..."
+    make MAKEINFO=true install
+    echo "cleaning after target $TARGET"
+    make distclean
+done
+echo "cleaning up temp dir"
+rm -rf "$TMPDIR"
