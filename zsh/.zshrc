@@ -122,3 +122,6 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # Exec general init script
 source ~/.initsh
+
+# Dedupe PATH
+typeset -U PATH
