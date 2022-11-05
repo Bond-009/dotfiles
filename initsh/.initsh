@@ -11,8 +11,14 @@ if [ -x "$(command -v nvim)" ]; then
 fi
 ## Replace ls and tree with exa if installed
 if [ -x "$(command -v exa)" ]; then
-    alias ls='exa'
+    alias ls='exa --group-directories-first'
     alias tree='exa --tree'
+    # exa doesn't have the --almost-all option
+    alias la='ls -al'
+else
+    # TODO: can we add --group-directories-first here?
+    ls --color=auto > /dev/null 2>&1 && alias ls='ls --color=auto'
+    alias la='ls -A'
 fi
 ## Colors
 if [ -x "$(command -v dircolors)" ]; then
@@ -22,7 +28,7 @@ if [ -x "$(command -v dircolors)" ]; then
         eval "$(dircolors)"
     fi
 fi
-ls --color=auto > /dev/null 2>&1 && alias ls='ls --color=auto'
+
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -31,8 +37,7 @@ alias egrep='egrep --color=auto'
 alias hexedit='hexedit --color'
 alias minicom='minicom -c on'
 ## Some more ls aliases
-alias ll='ls -Al'
-alias la='ls -A'
+alias ll='ls -l'
 
 # Easy to use copy/paste aliases for different platforms
 if [ "$KERNEL" = "Linux" ]; then
@@ -47,9 +52,13 @@ fi
 if [ -n "$WELCOME_MSG" ]; then
     if [ "$KERNEL" = "Linux" ]; then
         DF_ARGS="-h -T -xtmpfs -xdevtmpfs"
-        OS_DESCRIPTION="$(lsb_release -sd)"
-        # Manjaro has a weird lsb_release, compensate
-        [ "$OS_DESCRIPTION" = '"Manjaro Linux"' ] && OS_DESCRIPTION="Manjaro Linux $(lsb_release -sr) ($(lsb_release -sc))"
+        if [ -x "$(command -v lsb_release)" ]; then
+            OS_DESCRIPTION="$(lsb_release -sd)"
+            # Manjaro has a weird lsb_release, compensate
+            [ "$OS_DESCRIPTION" = '"Manjaro Linux"' ] && OS_DESCRIPTION="Manjaro Linux $(lsb_release -sr) ($(lsb_release -sc))"
+        else
+            OS_DESCRIPTION="$(uname --operating-system)"
+        fi
     elif [ "$KERNEL" = "Darwin" ]; then
         DF_ARGS="-h -l"
         OS_DESCRIPTION="$(system_profiler SPSoftwareDataType -detailLevel mini | grep -o "System Version: .*" | awk -F ': ' '{print $2}')"

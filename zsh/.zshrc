@@ -101,8 +101,7 @@ export DEFAULT_USER="$USER"
 # Don't indent prompt
 export ZLE_RPROMPT_INDENT=0
 
-# Powerlevel9k
-[ -n "$POWERLEVEL9K_THEME" ] && source "$POWERLEVEL9K_THEME"
+[ -n "$ZSH_THEME" ] && source "$ZSH_THEME"
 ## Settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
@@ -118,7 +117,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 # Syntax highlighting
 [ -n "$ZSH_SYNTAX_HIGHLIGHTING_PATH" ] && source "$ZSH_SYNTAX_HIGHLIGHTING_PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f "$ZSH_FZF_PATH" ] && source "$ZSH_FZF_PATH"
 
 # Exec general init script
 source ~/.initsh
