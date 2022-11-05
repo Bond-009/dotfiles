@@ -29,6 +29,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias hexedit='hexedit --color'
+alias minicom='minicom -c on'
 ## Some more ls aliases
 alias ll='ls -Al'
 alias la='ls -A'
