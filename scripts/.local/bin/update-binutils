@@ -2,7 +2,7 @@
 
 set -ef
 
-TARGETS="x86_64-elf aarch64-elf"
+TARGETS="aarch64-elf riscv64-elf x86_64-elf"
 
 [ -z "$1" ] && echo "$0: missing url" && exit 1
 
