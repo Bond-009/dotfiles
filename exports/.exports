@@ -55,3 +55,6 @@ export RUST_BACKTRACE=1
 
 # Pico SDK
 [ -d "$HOME/pico/pico-sdk" ] && export PICO_SDK_PATH="$HOME/pico/pico-sdk"
+
+# FZF
+export FZF_DEFAULT_OPTS="--reverse"

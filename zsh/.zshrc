@@ -111,16 +111,19 @@ POWERLEVEL9K_STATUS_ERROR_BACKGROUND='009' # lightred
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='009' # lightred
 
 # Autosuggestions
-[ -n "$ZSH_AUTOSUGGEST_PATH" ] && source "$ZSH_AUTOSUGGEST_PATH"
+[ -n "$ZSH_AUTOSUGGEST" ] && source "$ZSH_AUTOSUGGEST"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=7
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 # Syntax highlighting
-[ -n "$ZSH_SYNTAX_HIGHLIGHTING_PATH" ] && source "$ZSH_SYNTAX_HIGHLIGHTING_PATH"
+[ -n "$ZSH_SYNTAX_HIGHLIGHTING" ] && source "$ZSH_SYNTAX_HIGHLIGHTING"
 
-[ -f "$ZSH_FZF_PATH" ] && source "$ZSH_FZF_PATH"
+[ -f "$ZSH_FZF_KEYBINDS" ] && source "$ZSH_FZF_KEYBINDS"
 
 # Exec general init script
 source ~/.initsh
 
 # Dedupe PATH
 typeset -U PATH
+
+# Only show welcome message if it's enabled and we're a login shell
+[[ -o login && -n "$WELCOME_MSG" ]] && welcome_msg
