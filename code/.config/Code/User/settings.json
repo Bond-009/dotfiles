@@ -140,6 +140,9 @@
     // Rust analyzer
     "rust-analyzer.inlayHints.enable": false,
 
+    // Version Lens
+    "versionlens.suggestions.showOnStartup": true,
+
     "cSpell.userWords": [
         "intrinsics",
         "unpause",
