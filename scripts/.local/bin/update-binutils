@@ -16,7 +16,7 @@ TMPDIR=$(mktemp -d)
 echo "downloading..."
 curl -o "$TMPFILE" "$1"
 echo "extracting..."
-tar Jxf "$TMPFILE" --strip-components=1 -C "$TMPDIR"
+tar xf "$TMPFILE" --strip-components=1 -C "$TMPDIR"
 echo "cleaning up temp file"
 rm "$TMPFILE"
 cd "$TMPDIR"
@@ -24,7 +24,8 @@ for TARGET in $TARGETS
 do
     echo "configuring target $TARGET..."
     ./configure --target="$TARGET" --prefix="$HOME/opt/cross" \
-        --disable-nls --disable-werror --disable-libdecnumber --disable-readline --disable-sim
+        --disable-nls --disable-werror --disable-libdecnumber --disable-readline --disable-sim \
+        --enable-colored-disassembly
     echo "building target $TARGET..."
     make MAKEINFO=true -j "$(nproc)"
     echo "installing target $TARGET..."
