@@ -137,8 +137,10 @@
     "omnisharp.enableRoslynAnalyzers": true,
     "razor.disabled": true,
 
-    // Rust analyzer
-    "rust-analyzer.inlayHints.enable": false,
+    // Rust
+    "rust.clippy_preference": "on",
+    "rust-client.autoStartRls": false,
+    "rust-client.engine": "rust-analyzer",
 
     // Version Lens
     "versionlens.suggestions.showOnStartup": true,
@@ -168,5 +170,5 @@
         "ubyte",
         "upnp",
         "ushort"
-    ],
+    ]
 }
