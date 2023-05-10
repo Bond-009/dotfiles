@@ -12,6 +12,7 @@
     "editor.fontSize": 15,
     "editor.formatOnPaste": false,
     "editor.hover.delay": 200,
+    "editor.inlayHints.enabled": "offUnlessPressed",
     "editor.minimap.enabled": false,
     "editor.mouseWheelZoom": true,
     "editor.multiCursorModifier": "ctrlCmd",
