@@ -131,10 +131,15 @@
     "material-icon-theme.folders.color": "#0087ff",
 
     // C#
-    "csharp.suppressHiddenDiagnostics": false,
+    "csharp.suppressBuildAssetsNotification": true,
     "csharp.suppressDotnetInstallWarning": true,
     "csharp.suppressDotnetRestoreNotification": true,
+    "csharp.suppressHiddenDiagnostics": false,
+
+    "omnisharp.analyzeOpenDocumentsOnly": true,
+    "omnisharp.enableDecompilationSupport": true,
     "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableImportCompletion": true,
     "omnisharp.enableRoslynAnalyzers": true,
     "razor.disabled": true,
 
