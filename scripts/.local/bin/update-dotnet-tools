@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -ef
+
+dotnet tool list -g | tail -n +3 | cut -f 1 -d ' ' | xargs -L 1 dotnet tool update -g
