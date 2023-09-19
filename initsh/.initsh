@@ -9,16 +9,12 @@ if [ -x "$(command -v nvim)" ]; then
     alias vi='nvim'
     alias vim='nvim'
 fi
-## Replace ls and tree with exa if installed
-if [ -x "$(command -v exa)" ]; then
-    alias ls='exa --group-directories-first'
-    alias tree='exa --tree'
-    # exa doesn't have the --almost-all option
-    alias la='ls -al'
+## Replace ls and tree with eza if installed
+if [ -x "$(command -v eza)" ]; then
+    alias ls='eza --group-directories-first'
+    alias tree='eza --tree'
 else
-    # TODO: can we add --group-directories-first here?
     ls --color=auto > /dev/null 2>&1 && alias ls='ls --color=auto'
-    alias la='ls -A'
 fi
 ## Colors
 if [ -x "$(command -v dircolors)" ]; then
@@ -38,6 +34,7 @@ alias hexedit='hexedit --color'
 alias minicom='minicom -c on'
 ## Some more ls aliases
 alias ll='ls -l'
+alias la='ls -Al'
 
 # Easy to use copy/paste aliases for different platforms
 if [ "$KERNEL" = "Linux" ]; then
