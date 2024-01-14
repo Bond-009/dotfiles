@@ -52,7 +52,7 @@
             }
         ]
     },
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
 
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -132,16 +132,16 @@
 
     // C#
     "csharp.suppressBuildAssetsNotification": true,
-    "csharp.suppressDotnetInstallWarning": true,
     "csharp.suppressDotnetRestoreNotification": true,
     "csharp.suppressHiddenDiagnostics": false,
 
-    "omnisharp.analyzeOpenDocumentsOnly": true,
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+
+    "dotnetAcquisitionExtension.enableTelemetry": false,
+
     "omnisharp.enableDecompilationSupport": true,
     "omnisharp.enableEditorConfigSupport": true,
-    "omnisharp.enableImportCompletion": true,
-    "omnisharp.enableRoslynAnalyzers": true,
-    "razor.disabled": true,
+    "omnisharp.sdkIncludePrereleases": false,
 
     // Version Lens
     "versionlens.suggestions.showOnStartup": true,
