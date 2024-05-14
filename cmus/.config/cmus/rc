@@ -1,0 +1,5 @@
+colorscheme codedark
+
+set replaygain=album-preferred
+set show_current_bitrate=true
+set start_view=sorted
