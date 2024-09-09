@@ -99,6 +99,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.list.horizontalScrolling": true,
     "workbench.list.openMode": "doubleClick",
+    "workbench.welcomePage.walkthroughs.openOnInstall": false,
 
     "zenMode.centerLayout": false,
 
@@ -126,6 +127,7 @@
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
     },
+    "gitlens.showWelcomeOnInstall": false,
 
     // Material Icon Theme
     "material-icon-theme.folders.color": "#0087ff",
