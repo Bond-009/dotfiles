@@ -2,6 +2,10 @@
 
 set -ef
 
+# Set pipefail if it works in a subshell, disregard if unsupported
+# shellcheck disable=SC3040
+(set -o pipefail 2> /dev/null) && set -o pipefail
+
 INSTALLLOCATION="$HOME/dotnet"
 
 [ -z "$1" ] && echo "$0: missing url" && exit 1
@@ -16,15 +20,9 @@ if [ -d "$INSTALLLOCATION" ]; then
     [ "$RESPONSE" = "y" ] && rm -r "$INSTALLLOCATION"
 fi
 
-TMPFILE=$(mktemp)
-
 mkdir -p "$INSTALLLOCATION"
 
-echo "downloading..."
-curl -o "$TMPFILE" "$1"
-echo "extracting..."
-tar zxf "$TMPFILE" -C "$INSTALLLOCATION"
-echo "cleaning up temp files..."
-rm "$TMPFILE"
+echo "downloading & extracting..."
+curl -o - "$1" | tar zx -C "$INSTALLLOCATION"
 
 echo "dotnet was successfully installed in $INSTALLLOCATION"
