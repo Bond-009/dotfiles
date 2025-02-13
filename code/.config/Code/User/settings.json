@@ -139,12 +139,16 @@
     "csharp.suppressHiddenDiagnostics": false,
 
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+    "dotnet.server.useOmnisharp": true,
 
     "dotnetAcquisitionExtension.enableTelemetry": false,
 
     "omnisharp.enableDecompilationSupport": true,
     "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.sdkIncludePrereleases": false,
+
+    "razor.disabled": true,
 
     // Version Lens
     "versionlens.suggestions.showOnStartup": true,
