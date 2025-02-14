@@ -1,6 +1,8 @@
 {
     "breadcrumbs.enabled": true,
 
+    "chat.commandCenter.enabled": false,
+
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderIndicators": false,
 
